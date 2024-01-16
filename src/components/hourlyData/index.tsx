@@ -12,7 +12,6 @@ import {
   ForcastTemp,
   HourImg,
 } from "./styledComponents";
-// import { Search } from "../../redux/Weatherapi/action";
 import { FaSun, FaRegSun } from "react-icons/fa";
 import { BsMoonStarsFill  } from "react-icons/bs";
 
@@ -46,7 +45,6 @@ function HourlyData() {
   WeatherHourly.map((e: any) => {
     Data = e?.forecast?.forecastday[0]?.hour;
   });
-  console.log(WeatherHourly);
 
   return (
     <TodayWeatherHolder>
@@ -63,7 +61,7 @@ function HourlyData() {
                   ?.toLocaleUpperCase()
                   .split(":")
                   ?.shift()
-                  ?.toLocaleUpperCase() == Time
+                  ?.toLocaleUpperCase() ===Time
                   ? "#abafb1"
                   : "",
               scale:
@@ -73,7 +71,7 @@ function HourlyData() {
                   ?.toLocaleUpperCase()
                   .split(":")
                   ?.shift()
-                  ?.toLocaleUpperCase() == Time
+                  ?.toLocaleUpperCase() === Time
                   ? "1.2"
                   : "",
             }}
@@ -87,7 +85,7 @@ function HourlyData() {
                     ?.toLocaleUpperCase()
                     .split(":")
                     ?.shift()
-                    ?.toLocaleUpperCase() == Time
+                    ?.toLocaleUpperCase() === Time
                     ? "black"
                     : "",
               }}
@@ -103,20 +101,19 @@ function HourlyData() {
                     ?.toLocaleUpperCase()
                     .split(":")
                     ?.shift()
-                    ?.toLocaleUpperCase() == Time
+                    ?.toLocaleUpperCase() === Time
                     ? "black"
                     : "",
               }}
             >
-              {e?.time?.split(" ")?.pop()?.toLocaleUpperCase() <= "16" ? (
+              {e?.is_day == "1" ? (
                 <FaSun style={{ fontSize: "35px", color:'yellow'}} />
-              ) : e?.time?.split(" ")?.pop()?.toLocaleUpperCase() <= "20" ? (
-                <FaRegSun style={{ fontSize: "35px" , color:'gray' }} />
-              ) : e?.time?.split(" ")?.pop()?.toLocaleUpperCase() > "20" ? (
+              )  :e?.is_day == "0" ? (
                 <BsMoonStarsFill  style={{ fontSize: "35px", color:'black'}} />
               ) : (
                 ""
               )}
+              {/* {e?.is_day} */}
             </AllDayImg>
             <ForcastTemp
               style={{
@@ -127,7 +124,7 @@ function HourlyData() {
                     ?.toLocaleUpperCase()
                     .split(":")
                     ?.shift()
-                    ?.toLocaleUpperCase() == Time
+                    ?.toLocaleUpperCase() === Time
                     ? "black"
                     : "",
               }}

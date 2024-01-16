@@ -11,6 +11,8 @@ import {
 } from "./styledComponents";
 import { ViewTime } from "../../redux/Weatherapi/action";
 import { FaSun, FaRegSun } from "react-icons/fa";
+import { BsMoonStarsFill  } from "react-icons/bs";
+
 
 const Weather = () => {
   const { AllDataInOne } = useSelector((state: RootState) => ({
@@ -57,6 +59,8 @@ const Weather = () => {
     dispatch(ViewTime(TimeData));
   });
 
+  console.log(Search)
+
   return (
     <div>
       {WeatherArray.map((e: any, index: any) => (
@@ -65,13 +69,15 @@ const Weather = () => {
           <ChanceOfRain>Chance of rain 0%</ChanceOfRain>
           <TempHolder>{e?.current?.temp_c}°</TempHolder>
           <ConditionHolder>
-            {e?.current?.condition?.text === "Sunny" ? (
+            {e?.current?.is_day == "1" ? (
               <FaSun style={{fontSize:'150px', color:'yellow'}} />
-            ) : e?.current?.condition?.text === "Cloudy" ? (
-              <FaRegSun  style={{fontSize:'150px'}}/>
-            ) : e?.current?.condition?.text === "Rain" ? (
-              <FaSun  style={{fontSize:'150px'}}/>
-            ) : (
+            ) : e?.current?.is_day == "0" ? (
+              <BsMoonStarsFill  style={{fontSize:'150px'}}/>
+            ) 
+            // : e?.current?.condition?.text === "Rain" ? (
+            //   <FaSun  style={{fontSize:'150px'}}/>
+            // ) 
+            : (
               ""
             )}
           </ConditionHolder>

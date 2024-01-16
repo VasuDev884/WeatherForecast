@@ -5,6 +5,6 @@ export interface LoadDataPayload{
 export interface InitialState {
     isLoading:boolean
     LoadData:Array<any>
-    Search:Array<any>
+    Search:any
     viewTime:Array<any>
 }

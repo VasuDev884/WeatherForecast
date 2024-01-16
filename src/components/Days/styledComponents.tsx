@@ -7,6 +7,9 @@ export const DaysWeatherWrapper = styled.div`
   border-radius: 10px;
   background-color: #d4d3d3;
   padding: 10px;
+   @media (max-width: 1245px) {
+    width: 350px;
+  }
 `;
 
 export const Heading = styled.h4`
