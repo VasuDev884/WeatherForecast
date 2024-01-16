@@ -1,0 +1,16 @@
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+}
+
+.DayWeather{
+  position: absolute;
+  top: 36px;
+  right: 10px;
+}
